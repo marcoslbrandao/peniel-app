@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Peniel Church</title>
+<meta name="description" content="Baixe o app da Peniel Church: devocional diário, Bíblia, agenda, cultos ao vivo, grupos e avisos da igreja.">
+<meta property="og:title" content="App Peniel Church">
+<meta property="og:description" content="Devocional diário, Bíblia, agenda, cultos ao vivo, grupos e avisos da igreja.">
+<meta property="og:image" content="https://app.penielchurch.org.uk/logo.png">
+<meta name="theme-color" content="#1A1740">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<script>
+  // ─── Link único do app da Peniel ────────────────────────────────────────
+  // iPhone/iPad → App Store. Android → Google Play. Computador → esta página
+  // com os dois botões e o QR code.
+  //
+  // GOOGLE_PLAY_NO_AR: enquanto a Google Play não aprovar a versão de
+  // produção, o Android NÃO é redirecionado (a página da loja dá 404) e vê
+  // "Em breve na Google Play". No dia da aprovação: trocar para true.
+  var GOOGLE_PLAY_NO_AR = false;
+
+  var APP_STORE = 'https://apps.apple.com/app/id6776841788';
+  var GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=org.uk.penielchurch.app';
+
+  (function () {
+    var ua = navigator.userAgent || '';
+    var ficar = /[?&]ficar\b/.test(location.search); // ?ficar = mostra a página, sem redirecionar
+    var iOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var android = /Android/i.test(ua);
+    if (ficar) return;
+    if (iOS) { location.replace(APP_STORE); return; }
+    if (android && GOOGLE_PLAY_NO_AR) { location.replace(GOOGLE_PLAY); return; }
+  })();
+</script>
+<style>
+  :root {
+    --bg: #F9F8FF; --card: #FFFFFF; --texto: #1A1740; --suave: #5F5893;
+    --borda: rgba(83,74,183,0.15); --roxo: #534AB7; --ouro: #D99A00; --navy: #1A1740;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0B22; --card: #1C1940; --texto: #F1EFFA; --suave: #A69FD6;
+      --borda: #332D5C; --roxo: #B9AEFF; --ouro: #F5C842;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  header {
+    width: 100%; background: var(--navy); color: #fff; text-align: center;
+    padding: 40px 16px 72px;
+  }
+  header img { width: 96px; height: 96px; border-radius: 50%; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+  header h1 { margin: 16px 0 6px; font-size: 28px; letter-spacing: -0.02em; }
+  header p { margin: 0; color: #C9C3EE; font-size: 16px; }
+  main { width: 100%; max-width: 440px; padding: 0 16px 40px; margin-top: -44px; }
+  .card {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 20px;
+    padding: 22px; box-shadow: 0 10px 30px rgba(26,23,64,.08);
+  }
+  .botao {
+    display: flex; align-items: center; gap: 14px; text-decoration: none;
+    background: #000; color: #fff; border-radius: 14px; padding: 12px 18px; margin-bottom: 12px;
+    transition: transform .15s ease;
+  }
+  .botao:active { transform: scale(.98); }
+  .botao svg { width: 30px; height: 30px; flex: none; }
+  .botao small { display: block; font-size: 11px; opacity: .8; }
+  .botao strong { display: block; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+  .botao.embreve { background: transparent; color: var(--suave); border: 1.5px dashed var(--borda); pointer-events: none; }
+  .qr { display: flex; gap: 16px; align-items: center; margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--borda); }
+  .qr img { width: 112px; height: 112px; border-radius: 10px; background: #fff; padding: 6px; border: 1px solid var(--borda); }
+  .qr p { margin: 0; font-size: 14px; color: var(--suave); line-height: 1.45; }
+  ul { list-style: none; padding: 0; margin: 22px 4px 0; display: grid; gap: 10px; }
+  li { display: flex; gap: 10px; align-items: baseline; font-size: 15px; color: var(--texto); }
+  li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ouro); flex: none; transform: translateY(-2px); }
+  footer { margin-top: auto; padding: 24px 16px; font-size: 13px; color: var(--suave); text-align: center; }
+  footer a { color: var(--roxo); }
+</style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Peniel Church">
+    <h1>App Peniel Church</h1>
+    <p>Sua igreja na palma da mão</p>
+  </header>
+  <main>
+    <div class="card">
+      <a class="botao" id="btn-ios" href="https://apps.apple.com/app/id6776841788">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.53zM14.18 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z"/></svg>
+        <span><small>Baixar na</small><strong>App Store</strong></span>
+      </a>
+      <a class="botao" id="btn-android" href="https://play.google.com/store/apps/details?id=org.uk.penielchurch.app">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.2 13.5 12l-9.9 9.8c-.36-.2-.6-.6-.6-1.05V3.25c0-.45.24-.85.6-1.05z"/><path fill="#FBBC04" d="m17 8.5-3.5 3.5L17 15.5l3.98-2.25c.68-.39.68-1.36 0-1.75L17 8.5z"/><path fill="#4285F4" d="M3.6 2.2c.3-.17.68-.2 1.04.01L17 8.5 13.5 12 3.6 2.2z"/><path fill="#EA4335" d="M13.5 12 17 15.5 4.64 21.8c-.36.2-.74.17-1.04 0L13.5 12z"/></svg>
+        <span><small id="android-sub">Disponível no</small><strong>Google Play</strong></span>
+      </a>
+      <div class="qr">
+        <img src="qr-app-peniel.png" alt="QR code para baixar o app da Peniel Church">
+        <p>Aponte a câmera do celular para o código. Ele abre a loja certa para o seu aparelho.</p>
+      </div>
+    </div>
+    <ul>
+      <li>Devocional e versículo do dia</li>
+      <li>Bíblia em várias versões</li>
+      <li>Agenda, cultos ao vivo e vídeos</li>
+      <li>Grupos, estudo bíblico e avisos da igreja</li>
+    </ul>
+  </main>
+  <footer>
+    <a href="https://penielchurch.org.uk">penielchurch.org.uk</a> · Abbey Square, Reading
+  </footer>
+  <script>
+    if (!GOOGLE_PLAY_NO_AR) {
+      var b = document.getElementById('btn-android');
+      b.classList.add('embreve');
+      b.removeAttribute('href');
+      document.getElementById('android-sub').textContent = 'Em breve no';
+    }
+  </script>
+</body>
+</html>
